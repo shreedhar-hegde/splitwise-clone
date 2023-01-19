@@ -1,0 +1,24 @@
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  "
+>
+  <div>
+    <h1 style="margin: 1em">Expenses</h1>
+  </div>
+  <div *ngFor="let expense of expenses">
+    <mat-card style="margin: 1em">
+      <mat-card-header>
+        <mat-card-title>{{ expense.name }}</mat-card-title>
+        <mat-card-subtitle>{{ expense.group.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-button>Edit</button>
+        <button mat-button>Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
