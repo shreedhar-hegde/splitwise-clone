@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { friendsMock } from '../friends.service';
 
 @Component({
@@ -7,11 +9,25 @@ import { friendsMock } from '../friends.service';
   styleUrls: ['./friend-list.component.css'],
 })
 export class FriendListComponent implements OnInit {
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   friends: any;
 
   ngOnInit(): void {
     this.friends = friendsMock;
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: {
+        itemTitle: 'Friend',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((friend) => {
+      if (friend) {
+        console.log('friend', friend);
+      }
+    });
   }
 }
