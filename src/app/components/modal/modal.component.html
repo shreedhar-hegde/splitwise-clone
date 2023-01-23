@@ -1,37 +1,39 @@
-<div
-  style="
+<div style="
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 15vw;
-    height: 20vh;
-  "
->
-  <h3>{{ data.itemTitle }}</h3>
+    width: auto;
+    height: auto;
+  ">
+  <h3>{{ data.title }}</h3>
   <div class="example-container">
     <mat-form-field hintLabel="Max 10 characters" appearance="fill">
-      <mat-label>{{ data.itemTitle }} name</mat-label>
-      <input
-        matInput
-        #input
-        maxlength="10"
-        placeholder="Ex. Nougat"
-        [formControl]="item"
-      />
+      <mat-label>{{ data.groupName }} name</mat-label>
+      <input matInput #input maxlength="10" placeholder="Ex. Nougat" [value]="groupName"
+        [formControl]="$any(dataForm).controls['groupNameFormControl']" />
       <mat-hint align="end">{{ input.value.length }}/10</mat-hint>
     </mat-form-field>
-  </div>
-  <div
-    style="
+
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Friends</mat-label>
+        <mat-select ngDefaultControl [formControl]="$any(dataForm).controls['friendsFromControl']" multiple>
+          <mat-option name="friend" *ngFor="let friend of friends" [value]="friend.name">{{friend.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+
+    <div style="
       display: flex;
       align-items: center;
       justify-content: space-around;
       width: 100%;
       margin: 1em;
-    "
-  >
-    <button mat-button [mat-dialog-close]="item.value">Add</button>
-    <button mat-button (click)="onNoClick()">Cancel</button>
+    ">
+      <button mat-button [mat-dialog-close]="groupName">Add</button>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+    </div>
   </div>
-</div>

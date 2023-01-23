@@ -9,6 +9,9 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatOptionModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [AppComponent, ModalComponent],
@@ -20,6 +23,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatOptionModule,
+    MatInputModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

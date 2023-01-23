@@ -12,6 +12,7 @@ export class ExpenseListComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   expenses: any;
+ 
 
   ngOnInit(): void {
     this.expenses = expensesMock;

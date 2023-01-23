@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { groupMock } from '../group.service';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-group-list',
@@ -17,10 +17,13 @@ export class GroupListComponent implements OnInit {
     this.groups = groupMock;
   }
 
-  openDialog() {
+  openDialog(mode:string, groupName?:string, friends?:string[]) {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
-        itemTitle: 'Group',
+        title: 'Group',
+        mode,
+        groupName,
+        friends
       },
     });
 

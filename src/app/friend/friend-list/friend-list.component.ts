@@ -20,7 +20,7 @@ export class FriendListComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
-        itemTitle: 'Friend',
+        title: 'Friend',
       },
     });
 
